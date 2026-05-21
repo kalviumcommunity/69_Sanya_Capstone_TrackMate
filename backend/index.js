@@ -16,8 +16,8 @@ app.use(express.json({ limit: '20mb' }));
 //     next();
 //   });
 app.use(cors({
-    // origin: 'http://localhost:5173',
-    origin: 'https://trackmateapp.netlify.app',
+    origin: 'http://localhost:5173',
+    // origin: 'https://trackmateapp.netlify.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }));
