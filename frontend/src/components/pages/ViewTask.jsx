@@ -132,7 +132,7 @@ const ViewTask = () => {
       context.drawImage(videoRef.current, 0, 0, 300, 225);
       const imageDataUrl = canvasRef.current.toDataURL("image/jpeg");
       setPhoto(imageDataUrl);
-      setTime(new Date().toLocaleString());
+      setTime(new Date().toISOString());
 
       try {
         const locationLink = await getCurrentLocation();
@@ -298,7 +298,7 @@ const ViewTask = () => {
               Capture Photo
             </button>
             {checkInPhoto && <p className="text-green-500 mt-2">Check-In photo captured!</p>}
-            {checkInTime && <p className="text-white mt-2">Check-In Time: {checkInTime}</p>}
+            {checkInTime && <p className="text-white mt-2">Check-In Time: {new Date(checkInTime).toLocaleString()}</p>}
             {checkInLocation && (
               <p className="text-white mt-2">
                 Check-In Location:{" "}
@@ -334,7 +334,7 @@ const ViewTask = () => {
               Capture Photo
             </button>
             {checkOutPhoto && <p className="text-green-500 mt-2">Check-Out photo captured!</p>}
-            {checkOutTime && <p className="text-white mt-2">Check-Out Time: {checkOutTime}</p>}
+            {checkOutTime && <p className="text-white mt-2">Check-Out Time: {new Date(checkOutTime).toLocaleString()}</p>}
             {checkOutLocation && (
               <p className="text-white mt-2">
                 Check-Out Location:{" "}
