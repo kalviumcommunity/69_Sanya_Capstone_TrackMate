@@ -54,13 +54,16 @@ const sendOTP = async (email, otp) => {
             html: `<p>Your OTP code is: <strong>${otp}</strong>. It expires in 10 minutes.</p>`, // Optional: Add HTML version
         };
         // console.log(`${process.env.SMTP_SERVICE}`);
-
+        console.log("SMTP_EMAIL:", process.env.SMTP_EMAIL);
+        console.log("SMTP_PASSWORD exists:", !!process.env.SMTP_PASSWORD);
+        console.log("Attempting to send OTP to:", email);
         await transporter.sendMail(mailOptions);
         console.log(`OTP sent to ${email}`);
     } catch (error) {
         // console.error("Error sending OTP:", error.message);
         // throw new Error("Failed to send OTP. Please try again later.");
-        console.error("FULL ERROR:", error);
+        console.error("FULL NODEMAILER ERROR:");
+        console.error(error);
         throw error;
     }
 };
