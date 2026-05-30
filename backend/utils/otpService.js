@@ -53,11 +53,17 @@ const sendOTP = async (email, otp) => {
             text: `Your OTP code is: ${otp}. It expires in 10 minutes.`,
             html: `<p>Your OTP code is: <strong>${otp}</strong>. It expires in 10 minutes.</p>`, // Optional: Add HTML version
         };
-        // console.log(`${process.env.SMTP_SERVICE}`);
-        console.log("SMTP_EMAIL:", process.env.SMTP_EMAIL);
-        console.log("SMTP_PASSWORD exists:", !!process.env.SMTP_PASSWORD);
-        console.log("Attempting to send OTP to:", email);
-        await transporter.sendMail(mailOptions);
+       
+        // await transporter.sendMail(mailOptions);
+         console.log("Before sendMail");
+
+        const info = await transporter.sendMail(mailOptions);
+
+        console.log("After sendMail");
+        console.log("Message ID:", info.messageId);
+        console.log("Response:", info.response);
+
+        console.log(`OTP sent to ${email}`);
         console.log(`OTP sent to ${email}`);
     } catch (error) {
         // console.error("Error sending OTP:", error.message);
