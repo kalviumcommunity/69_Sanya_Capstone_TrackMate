@@ -1,387 +1,81 @@
-# 🚀 TrackMate
+# TrackMate — Field Worker Tracking App
 
-**TrackMate** is a workforce management and employee tracking platform designed to streamline task assignment, employee monitoring, attendance verification, and productivity tracking for organizations managing field employees.
+## Overview
 
-The platform enables managers to assign tasks, organize employees into departments, monitor task completion, and review employee activity logs, while employees can access assigned tasks, complete field assignments, and verify their work using location and image-based check-ins.
+TrackMate is a full-stack field worker tracking and task management application built as a capstone project. It helps managers assign work, organize employees into departments, verify attendance with location-aware check-ins, and review activity logs, while employees can see assigned tasks, submit completion updates, and track their schedules from a single dashboard.
 
----
+This README is written for interview use: it gives a quick picture of the problem, the implemented features, and the parts of the codebase to reference when explaining the project.
 
-# 📌 Problem Statement
+## Core Features
 
-Organizations with field employees often struggle with:
+- Role-based access: Separate manager and employee flows with different permissions.
+- Authentication: Email/password login with JWTs and OTP utilities for sensitive flows.
+- Task and schedule management: Managers can create, assign, update, and review tasks; employees can view and complete their assigned work.
+- Attendance verification: Check-in and check-out flows with location capture and timestamped records for accountability.
+- Department management: Create and manage departments and assign users appropriately.
+- File uploads: Support for profile images and task attachments through the backend uploads folder.
+- Activity logs and reporting: Track attendance, task updates, and completion history for transparency.
+- Offline support: Basic low-network handling with sync-once-online behavior.
 
-* Tracking employee task completion
-* Verifying on-site attendance
-* Managing schedules efficiently
-* Monitoring employee productivity
-* Maintaining accurate task records
+Code is organized into `backend/` for Express APIs, models, and utilities, and `frontend/` for the React UI, pages, and assets.
 
-Traditional manual systems can lead to inaccurate reporting, lack of transparency, and inefficient workforce management.
+## Pages in the App
 
-TrackMate solves these challenges through a centralized digital platform that combines task management, verification logs, and productivity monitoring.
+- Login and signup flows
+- Employee dashboard
+- Manager dashboard
+- Attendance check-in and verification page
+- Schedule and task views
+- Settings and profile management
+- Help and support / FAQ
 
----
 
-# 🎯 Key Features
 
-## 🔐 Authentication & Authorization
+## Project Timeline
 
-* Secure JWT-based authentication
-* Role-based access control
-* Separate Manager and Employee portals
-* Protected backend APIs
+| Day  | Tasks |
+|------|----------------------------------------------|
+| 1    | Submitting Project Idea + Plan |
+| 2    | Lo-Fi Design |
+| 3    | Hi-Fi Design |
+| 4    | GitHub Project Setup |
+| 5    | Task & Milestone Tracking |
+| 6    | Backend Initialization - setting up Node and Express backend |
+| 7    | User Authentication (Username/Password) Using JWTs |
+| 8    | Begin initial design concepts |
+| 9    | Database Schema Creation |
+| 10   | Database Operations (CRUD) |
+| 11   | Implementing Entity Relationships |
+| 12   | GET API Development |
+| 13   | POST API Development |
+| 14   | PUT API Development |
+| 15   | DELETE API Development |
+| 16   | Deploying Backend Server |
+| 17   | Initializing React Frontend |
+| 18   | Creating React Components |
+| 19   | Deploying Frontend |
+| 20   | Implementing File Upload |
+| 21   | Third-Party Authentication |
+| 22   | Implementing Rate Limiting |
+| 23   | Testing with Jest |
+| 24   | Dockerizing Application |
+| 25   | Open Source Contribution |
+| 26   | Increasing Project Usage |
+| 27   | Collecting Feedback & Fixing Bugs |
+| 28   | Final Submission & Documentation |
 
----
-
-## 👨‍💼 Manager Dashboard
-
-Managers can:
-
-* View all employees
-* Assign employees to departments
-* Create and assign tasks
-* View employee schedules
-* Track task completion
-* Monitor employee logs
-* Search employees by name
-* Filter employees by department
-* Remove employees when required
-
----
-
-## 👷 Employee Dashboard
-
-Employees can:
-
-* View assigned tasks
-* Access task details
-* Track upcoming assignments
-* View completed tasks
-* Access activity logs
-* View department information
-
----
-
-## 📋 Task Management System
-
-Managers can create tasks with:
-
-* Date
-* Time
-* Address
-* City
-* Pincode
-* Task Description
-
-Employees can:
-
-* View assigned tasks
-* Complete assigned tasks
-* Submit verification details
-
----
-
-## 📍 Location Verification
-
-TrackMate records employee location during task completion.
-
-Features include:
-
-* GPS-based location capture
-* Google Maps location links
-* Check-in location verification
-* Check-out location verification
-
-This helps managers confirm that employees visited the assigned work site.
-
----
-
-## 📸 Image-Based Task Verification
-
-To improve accountability, employees must capture images during task completion.
-
-### Check-In
-
-* Open camera
-* Capture live image
-* Record timestamp
-* Record location
-
-### Check-Out
-
-* Open camera
-* Capture live image
-* Record timestamp
-* Record location
-
----
-
-## 📝 Task Activity Logs
-
-Every completed task stores:
-
-### Check-In Details
-
-* Check-In Time
-* Check-In Image
-* Check-In Location
-
-### Check-Out Details
-
-* Check-Out Time
-* Check-Out Image
-* Check-Out Location
-
-These logs provide proof of task completion and improve transparency.
-
----
-
-## 📊 Productivity Motivation System
-
-TrackMate includes a built-in employee motivation feature.
-
-The system:
-
-* Tracks completed tasks
-* Calculates daily completion percentage
-* Generates motivational notifications
-* Encourages consistent task completion
-
-Examples:
-
-* Progress-based encouragement messages
-* Completion milestone notifications
-* Productivity-focused feedback
-
-This improves employee engagement and creates a more positive work experience.
-
----
-
-# 🏗️ System Architecture
-
-## Frontend
-
-* React.js
-* React Router DOM
-* Tailwind CSS
-* React Toastify
-* Lucide React
-* React Icons
-
-## Backend
-
-* Node.js
-* Express.js
-* REST APIs
-* JWT Authentication
-
-## Database
-
-* MongoDB
-* Mongoose ODM
+This structured timeline helps in completing the project efficiently within the planned 4-week schedule.
 
 ## Deployment
 
-* Netlify (Frontend)
-* Render (Backend)
+- Frontend: https://trackmateapp.netlify.app/
+- Backend: https://six9-sanya-capstone-trackmate-2.onrender.com
 
----
+## Conclusion
 
-# 👥 User Roles
+TrackMate demonstrates end-to-end full-stack development: API design, secure authentication, role-based UI flows, and deployment of both frontend and backend. In an interview, a strong walkthrough is: manager creates a task, employee checks in with verification, completes the work, and the system records the result for logs and reporting.
 
-## Manager
-
-### Permissions
-
-* View all employees
-* Assign departments
-* Create tasks
-* Manage workforce
-* View employee schedules
-* Monitor completed work
-* Access employee logs
-
----
-
-## Employee
-
-### Permissions
-
-* View assigned tasks
-* Access task details
-* Complete tasks
-* Submit check-in/check-out verification
-* View completed task history
-
----
-
-# 🗂️ Database Models
-
-## User Model
-
-Stores:
-
-* Name
-* Email
-* Password
-* Role
-* Department
-
----
-
-## Task Model
-
-Stores:
-
-* Employee ID
-* Date
-* Time
-* Address
-* City
-* Pincode
-* Description
-* Status
-* Check-In Logs
-* Check-Out Logs
-* Creation Timestamp
-
----
-
-# 🔄 Workflow
-
-### Manager Workflow
-
-1. Create employee accounts
-2. Assign employees to departments
-3. Create tasks
-4. Assign tasks to employees
-5. Monitor employee progress
-6. Review logs and task completion
-
----
-
-### Employee Workflow
-
-1. Login to dashboard
-2. View assigned tasks
-3. Open task details
-4. Capture check-in image and location
-5. Perform assigned work
-6. Capture check-out image and location
-7. Mark task as completed
-8. View completed task history
-
----
-
-# 📁 Project Structure
-
-```bash
-TrackMate/
-│
-├── client/
-│   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── assets/
-│
-├── server/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── controllers/
-│   └── config/
-│
-└── README.md
-```
-
-# ⚙️ Installation
-
-### Clone Repository
-
-```bash
-git clone https://github.com/your-username/TrackMate.git
-```
-
-### Install Frontend Dependencies
-
-```bash
-cd client
-npm install
-```
-
-### Install Backend Dependencies
-
-```bash
-cd server
-npm install
-```
-
-### Configure Environment Variables
-
-Create a `.env` file inside the server folder:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-```
-
-### Run Backend
-
-```bash
-npm start
-```
-
-### Run Frontend
-
-```bash
-npm run dev
-```
-
----
-
-# 🚀 Live Deployment
-
-### Frontend
-
-https://trackmateapp.netlify.app/
-
-### Backend
-
-https://six9-sanya-capstone-trackmate-2.onrender.com
-
----
-
-# 🔮 Future Enhancements
-
-* Google Authentication
-* Face Recognition Verification
-* Real-Time Employee Tracking
-* Push Notifications
-* Attendance Analytics Dashboard
-* AI-Powered Productivity Insights
-* Mobile Application
-* Offline Support
-* Automated Report Generation
-
----
-
-# 🛠️ Tech Stack
-
-| Category       | Technology          |
-| -------------- | ------------------- |
-| Frontend       | React.js            |
-| Styling        | Tailwind CSS        |
-| Backend        | Node.js, Express.js |
-| Database       | MongoDB             |
-| Authentication | JWT                 |
-| Deployment     | Netlify, Render     |
-
----
-
-# 👩‍💻 Author
-
-**Sanya Thakur**
+If needed, I can also add a short appendix with key API endpoints or example request/response payloads.
 
 Kalvium Capstone Project
 
